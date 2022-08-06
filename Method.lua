@@ -8,9 +8,9 @@ if CheckRig() == 'R15' then
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(self,...)
     local Args = {...}
-    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAim  then
+    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAimbot  then
         local GivemeHead = ClosestPlayerToCurser()
-        if GivemeHead and GivemeHead.Character and GivemeHead.Character.FindFirstChild(GivemeHead.Character, getgenv().SelectMethod) then
+        if GivemeHead and GivemeHead.Character and GivemeHead.Character.FindFirstChild(GivemeHead.Character, 'UpperTorso') then
             Args[1] = Ray.new(workspace.CurrentCamera.CFrame.Position, (GivemeHead.Character.UpperTorso.Position - workspace.CurrentCamera.CFrame.Position).Unit * 1000)
             return OldNameCall(self, unpack(Args))
         end
@@ -23,9 +23,9 @@ if CheckRig() == 'R6' then
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(self,...)
     local Args = {...}
-    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAim  then
+    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAimbot  then
         local GivemeHead = ClosestPlayerToCurser()
-        if GivemeHead and GivemeHead.Character and GivemeHead.Character.FindFirstChild(GivemeHead.Character, getgenv().SelectMethod) then
+        if GivemeHead and GivemeHead.Character and GivemeHead.Character.FindFirstChild(GivemeHead.Character, 'Torso') then
             Args[1] = Ray.new(workspace.CurrentCamera.CFrame.Position, (GivemeHead.Character.Torso.Position - workspace.CurrentCamera.CFrame.Position).Unit * 1000)
             return OldNameCall(self, unpack(Args))
         end
@@ -38,7 +38,7 @@ if game.PlaceId == 734159876 then
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(self,...)
     local Args = {...}
-    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAim  then
+    if getnamecallmethod() == "FindPartOnRayWithIgnoreList" and not checkcaller() and  getgenv().SilentAimbot  then
         local GivemeHead = GetClosestFromCursor()
         if GivemeHead and GivemeHead.Body then
             Args[1] = Ray.new(workspace.CurrentCamera.CFrame.Position, (GivemeHead.Body.Position - workspace.CurrentCamera.CFrame.Position).Unit * 1000)
@@ -52,7 +52,7 @@ if game.PlaceId == 3233893879  then
 local OldNameCall = nil
 OldNameCall = hookmetamethod(game, "__namecall", function(self,...)
     local Args = {...}
-    if tostring(self) == "Projectiles" and getnamecallmethod() == "FireServer" and getClosestPlayerToCursor()  and getgenv().SilentAim then
+    if tostring(self) == "Projectiles" and getnamecallmethod() == "FireServer" and getClosestPlayerToCursor()  and getgenv().SilentAimbot then
     pcall(function()        
         Args[3] = getClosestPlayerToCursor().Hitbox.Chest
         Args[4] = getClosestPlayerToCursor().Hitbox.Chest.Position
